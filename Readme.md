@@ -25,10 +25,10 @@
 
     class AppDelegate: UIResponder, UIApplicationDelegate {
         func application(_ application: UIApplication,
-                         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+                         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
     
             Task {
-                let config = await SDKMetricaConfig.builder(apiToken: "API_TOKEN")
+                let config = await SDKMetricaConfig.builder(apiKey: "API_KEY")
                     .enableLocationTracking(isEnabled: true)
                     .build()
                 SDKMetrica.shared.activate(config: config)
@@ -51,7 +51,7 @@
         }
     }
 ```
-При создании экземпляра config, передается API_TOKEN, который необ-ходимо получить при регистрации приложения в [личном кабинете](ссылка на сайт ЛК) (ЛК).
+При создании экземпляра config, передается API_KEY, который необходимо получить при регистрации приложения в [личном кабинете](ссылка на сайт ЛК) (ЛК).
 
 Вызов метода `enableLocationTracking` является опциональным, его отсутствие вызова или вызов с параметром `isEnabled = false` - выключает фоновый трекинг геолокации пользователя.
 
