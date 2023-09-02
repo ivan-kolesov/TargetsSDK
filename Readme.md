@@ -10,6 +10,7 @@
 3. Добавьте пакет.
 
 ## Cocoapod
+.........
 
 ## Framework архив
 1. Скачайте архив
@@ -18,8 +19,7 @@
 
 # Инициализация библиотеки
 1. Создайте AppDelegate.swift со следующим содержимым:
-
-
+```
     import TargetsSDK
     import SwiftUI
 
@@ -50,15 +50,15 @@
             return SDKMetrica.shared.application(application, didReceiveRemoteNotification: userInfo, fetchCompletionHandler: completionHandler)
         }
     }
-
-При создании экземпляра config, передается API_TOKEN, который необ-ходимо получить при регистрации приложения в личном кабинете [ЛК](ссылка на сайт ЛК).
+```
+При создании экземпляра config, передается API_TOKEN, который необ-ходимо получить при регистрации приложения в [личном кабинете](ссылка на сайт ЛК) (ЛК).
 
 Вызов метода `enableLocationTracking` является опциональным, его отсутствие вызова или вызов с параметром `isEnabled = false` - выключает фоновый трекинг геолокации пользователя.
 
 
 2. Добавьте в Info.plist ключи:
 
-| Имя                                                         | Тип     |Значение|
+| Ключ                                                        | Тип     |Значение|
 |-------------------------------------------------------------|---------|------------------------------------|
 | FirebaseAppDelegateProxyEnabled                             | Boolean | NO                                 |
 | Privacy - Location Always and When In Use Usage Description | String  | Description of required permissions |
@@ -70,7 +70,7 @@
 
 3. Добавьте в entitlements файл записи:
 
-|Имя|Тип|Значение|
+|Ключ|Тип|Значение|
 |---|---|---|
 |com.apple.developer.networking.wifi-info|Boolean|YES|
 |APS Environment|String|production|
@@ -80,9 +80,10 @@
 # Отправка данных с помощью репортера
 
 Отправлять данные возможно на любые триггерные события в приложении:
-
-    SDKMetrica.shared.reportEvent("name")
-
+```
+    SDKMetrica.shared.reportEvent(name: String)
+```
 Отправка события со значением:
-    
-    SDKMetrica.shared.reportEvent("name", "value")
+```
+    SDKMetrica.shared.reportEvent(name: String, value: String)
+```
