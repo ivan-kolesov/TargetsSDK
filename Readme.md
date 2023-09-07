@@ -1,4 +1,4 @@
-Минимальные требования для работы библиотеки версия iOS >= 15
+Минимальные требования для работы библиотеки версия iOS >= 14
 
 # Подключение TargetsSDK к своему проекту
 
@@ -89,3 +89,22 @@
 ```
 
 # Подключение Notification Service
+
+В `File -> New -> Target` выберете `Notification Service Extension` и укажите `Product Name` как `NotificationService`.
+На вопрос `Activate “NotificationService” scheme` выберете `Activate`.
+
+В созданном файле NotificationService.swift замените содержимое на следующий код
+
+```
+    import UserNotifications
+    import TargetsSDK
+    
+    class NotificationService: SDKMetricaServiceExtension {
+        override func didReceive(
+            _ request: UNNotificationRequest,
+            withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void
+        ) {
+            super.didReceive(request, withContentHandler: contentHandler)
+        }
+    }
+```
