@@ -17,7 +17,7 @@ let package = Package(
         .binaryTarget(
             name: "TargetsSDK",
             url: "https://karmakod.ru/TargetsSDK.xcframework.zip",
-            checksum: "8d26f88b90045b9c4a287a57ea8ca00ba413af822bfe808cd2f3e34e0f939a97"
+            checksum: "2ab6e6ac18b129a47f0501d0c8e52553ee227b5c893179fe79391d5643186b70"
         )
     ]
 )

@@ -87,3 +87,5 @@
 ```
     SDKMetrica.shared.reportEvent(name: String, value: String)
 ```
+
+# Подключение Notification Service
