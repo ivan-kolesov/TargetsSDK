@@ -2,15 +2,12 @@
 
 # Подключение TargetsSDK к своему проекту
 
-Библиотеку можно подключить тремя способами: SPM, Cocoapod, Framework архив
+Библиотеку можно подключить тремя способами: SPM, Framework архив
 
 ## SPM
 1. В `File -> Add Packages` укажите `https://github.com/ivan-kolesov/TargetsSDK`
 2. Выберите `Up to next major version`
 3. Добавьте пакет.
-
-## Cocoapod
-.........
 
 ## Framework архив
 1. Скачайте архив
@@ -108,3 +105,5 @@
         }
     }
 ```
+
+Убедитесь, что `Deployment Target` у сервиса расширения меньше, чем версия iOS на телефоне. 
