@@ -58,8 +58,6 @@
 | Ключ                                                        | Тип     |Значение|
 |-------------------------------------------------------------|---------|------------------------------------|
 | FirebaseAppDelegateProxyEnabled                             | Boolean | NO                                 |
-| Privacy - Location Always and When In Use Usage Description | String  | Description of required permissions |
-| Privacy - Location When In Use Usage Description            | String  |Description of required permissions|
 | Privacy - Contacts Usage Description                        | String  |Usage contact list description|
 | Required background modes                                   | Array   |                                     |
 | item 0                                                      | String  |App downloads content from the network|
