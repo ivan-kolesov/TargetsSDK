@@ -105,3 +105,28 @@
 ```
 
 Убедитесь, что `Deployment Target` у сервиса расширения меньше, чем версия iOS на телефоне. 
+
+# Подключение Notification Content Service
+
+В `File -> New -> Target` выберете `Notification Content Extension` и укажите `Product Name` как `NotificationContent`.
+На вопрос `Activate “NotificationContentService” scheme` выберете `Activate`.
+
+В созданном файле NotificationViewController.swift замените содержимое на следующий код
+
+```
+    import UIKit
+    import TargetsSDK
+    
+    class NotificationViewController: SDKMetricaContentExtension {
+        @IBOutlet var label: UILabel?
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            // Do any required interface initialization here.
+        }
+    }
+```
+
+В Info.plist для параметра `UNNotificationExtensionCategory` укажите `video`.
+
+Убедитесь, что `Deployment Target` у сервиса расширения меньше, чем версия iOS на телефоне. 
