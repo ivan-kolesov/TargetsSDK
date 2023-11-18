@@ -104,6 +104,7 @@
     }
 ```
 
+В проекте у NotificationService `Build -> Frameworks and Libraries` добавьте `TargetsSDK` с типом `Do not embed`. 
 Убедитесь, что `Deployment Target` у сервиса расширения меньше, чем версия iOS на телефоне. 
 
 # Подключение Notification Content Service
@@ -128,5 +129,6 @@
 ```
 
 В Info.plist для параметра `UNNotificationExtensionCategory` укажите `video`.
+В проекте у NotificationContent `Build -> Frameworks and Libraries` добавьте `TargetsSDK` с типом `Do not embed`.
 
 Убедитесь, что `Deployment Target` у сервиса расширения меньше, чем версия iOS на телефоне. 
