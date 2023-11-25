@@ -110,7 +110,7 @@
 # Подключение Notification Content Service
 
 В `File -> New -> Target` выберете `Notification Content Extension` и укажите `Product Name` как `NotificationContent`.
-На вопрос `Activate “NotificationContentService” scheme` выберете `Activate`.
+На вопрос `Activate “NotificationContentService” scheme` выберете `Cancel`.
 
 В созданном файле NotificationViewController.swift замените содержимое на следующий код
 
@@ -119,7 +119,6 @@
     import TargetsSDK
     
     class NotificationViewController: SDKMetricaContentExtension {
-        @IBOutlet var label: UILabel?
         
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -128,7 +127,10 @@
     }
 ```
 
-В Info.plist для параметра `UNNotificationExtensionCategory` укажите `video`.
-В проекте у NotificationContent `Build -> Frameworks and Libraries` добавьте `TargetsSDK` с типом `Do not embed`.
+В Info.plist сделайте следующие изменения:
+* для параметра `UNNotificationExtensionCategory` укажите `video`;
+* имя параметра `NSExtensionMainStoryboard` замените на `NSExtensionPrincipalClass` и укажите значение параметра `NotificationContent.NotificationViewController`.
+
+В проекте `NotificationContent` в настройке `Build -> Frameworks and Libraries` добавьте `TargetsSDK` с типом `Do not embed`.
 
 Убедитесь, что `Deployment Target` у сервиса расширения меньше, чем версия iOS на телефоне. 
