@@ -15,7 +15,24 @@
 3. Подключите к проекту зависимость в `General -> Framework, Libraries, and Embedded Content` библиотеку из каталога `TargetsSDK.xcframework` (убедитесь, что поставили чекбокс `Copy if Needed`)
 
 # Инициализация библиотеки
-1. Создайте AppDelegate.swift со следующим содержимым:
+1. Создайте SceneDelegate.swift со следующим содержимым:
+```
+    import UIKit
+    import TargetsSDK
+
+    class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+
+        var window: UIWindow?
+
+        func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+            guard let _ = (scene as? UIWindowScene) else { return }
+
+            SDKMetrica.shared.scene(scene, willConnectTo: session, options: connectionOptions)
+        }
+    }
+```
+
+2. Создайте AppDelegate.swift со следующим содержимым:
 ```
     import TargetsSDK
     import SwiftUI
@@ -33,15 +50,21 @@
             
             return true
         }
-        
+
+        func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+            let sceneConfig: UISceneConfiguration = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
+            sceneConfig.delegateClass = SceneDelegate.self
+            return sceneConfig
+        }
+
         public func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
             return SDKMetrica.shared.application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
         }
-    
+
         public func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
             return SDKMetrica.shared.application(application, didFailToRegisterForRemoteNotificationsWithError: error)
         }
-    
+
         public func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                              fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
             return SDKMetrica.shared.application(application, didReceiveRemoteNotification: userInfo, fetchCompletionHandler: completionHandler)
@@ -53,7 +76,7 @@
 Вызов метода `enableLocationTracking` является опциональным, его отсутствие вызова или вызов с параметром `isEnabled = false` - выключает фоновый трекинг геолокации пользователя.
 
 
-2. Добавьте в Info.plist ключи:
+3. Добавьте в Info.plist ключи:
 
 | Ключ                                                        | Тип     |Значение|
 |-------------------------------------------------------------|---------|------------------------------------|
@@ -63,14 +86,14 @@
 | item 0                                                      | String  |App downloads content from the network|
 | item 1                                                      | String  |App downloads content in response to push notifications|
 
-3. Добавьте в entitlements файл записи:
+4. Добавьте в entitlements файл записи:
 
 |Ключ|Тип|Значение|
 |---|---|---|
 |com.apple.developer.networking.wifi-info|Boolean|YES|
 |APS Environment|String|production|
 
-4. Добавьте конфигурационный файл Firebase `GooleService-Info.plist`
+5. Добавьте конфигурационный файл Firebase `GooleService-Info.plist`
 
 # Отправка данных с помощью репортера
 
