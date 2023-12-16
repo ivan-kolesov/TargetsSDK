@@ -93,7 +93,7 @@
 |com.apple.developer.networking.wifi-info|Boolean|YES|
 |APS Environment|String|production|
 
-5. Добавьте конфигурационный файл Firebase `GooleService-Info.plist`
+5. Добавьте конфигурационный файл Firebase `GooleService-Info.plist`. Как сформировать этот файл можно ознакомиться на сайте [https://firebase.google.com/docs/ios/setup](https://firebase.google.com/docs/ios/setup)
 
 # Отправка данных с помощью репортера
 
