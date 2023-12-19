@@ -82,6 +82,9 @@
 |-------------------------------------------------------------|---------|------------------------------------|
 | FirebaseAppDelegateProxyEnabled                             | Boolean | NO                                 |
 | Privacy - Contacts Usage Description                        | String  |Usage contact list description|
+| Privacy - Location Always Usage Description                        | String  |Usage location description|
+| Privacy - Location When In Use Usage Description                        | String  |Usage location description|
+| Privacy - Location Always and When In Use Usage Description                        | String  |Usage location description|
 | Required background modes                                   | Array   |                                     |
 | item 0                                                      | String  |App downloads content from the network|
 | item 1                                                      | String  |App downloads content in response to push notifications|
