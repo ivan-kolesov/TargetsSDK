@@ -21,15 +21,19 @@
 ```
 import UIKit
 import TargetsSDK
+import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
-
+    var layerWindow: UIWindow?
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
-
+        
         SDKMetrica.shared.scene(scene, willConnectTo: session, options: connectionOptions)
+        
+        self.layerWindow = SDKMetrica.shared.getLayer(in: scene)
     }
 }
 ```
